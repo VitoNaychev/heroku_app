@@ -17,8 +17,8 @@ class LinRegressionController < ApplicationController
         countr = 0
 
         CSV.foreach(csv_file_path) do |row|
-            xs << row[0].to_f
-            ys << countr.to_f
+            ys << row[0].to_f
+            xs << countr.to_f
             countr += 1
         end
         linear_model = SimpleLinearRegression.new(xs, ys)
