@@ -12,7 +12,7 @@ class SumsController < ApplicationController
         sum = 0
 
         CSV.foreach(csv_file_path) do |row|
-            sum += row[2].to_f
+            sum += row[0].to_f
         end
 
         puts ("%.2f" % sum)
