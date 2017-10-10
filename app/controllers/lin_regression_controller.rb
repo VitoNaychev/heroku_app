@@ -1,23 +1,24 @@
 require 'csv'
+require_relative 'simple-linear-regression'
 
-class FiltersController < ApplicationController
+
+class LinRegressionController < ApplicationController
+
     skip_before_action :verify_authenticity_token
     def index
-    end 
+    end
     
     def create
         csv_file = params[:csv_file]
         csv_file_path = csv_file.path
-    
-        sum = 0 
+        
+        sum = 0
 
         CSV.foreach(csv_file_path) do |row|
-            if Integer(row[2]) % 2 != 0
-                sum += row[1].to_f
-            end
+            sum += row[0].to_f
         end
 
         puts ("%.2f" % sum)
         render :plain => ("%.2f\n" % sum).to_s
-    end 
+    end
 end
