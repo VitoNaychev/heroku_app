@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     get 'intervals' => 'intervals#index'
     post 'intervals' => 'intervals#create'
     get 'lin_regression' => 'lin_regression#index'
-    post ';in_regression' => 'lin_regression#create'
+    post 'lin_regression' => 'lin_regression#create'
 end

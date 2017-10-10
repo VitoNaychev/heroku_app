@@ -12,13 +12,19 @@ class LinRegressionController < ApplicationController
         csv_file = params[:csv_file]
         csv_file_path = csv_file.path
         
-        sum = 0
+        xs, ys = [], []
+    
+        countr = 0
 
         CSV.foreach(csv_file_path) do |row|
-            sum += row[0].to_f
+            xs << row[0].to_f
+            ys << countr.to_f
+            countr += 1
         end
-
-        puts ("%.2f" % sum)
-        render :plain => ("%.2f\n" % sum).to_s
+        linear_model = SimpleLinearRegression.new(xs, ys)
+        
+        print ("%.6f," % linear_model.y_intercept)
+        puts ("%.6f" % linear_model.slope)
+        render :plain => ("%.6f," % linear_model.slope).to_s + ("%.6f\n" % linear_model.y_intercept).to_s
     end
 end
