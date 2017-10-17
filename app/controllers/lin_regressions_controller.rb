@@ -2,14 +2,14 @@ require 'csv'
 require_relative 'simple-linear-regression'
 
 
-class LinRegressionController < ApplicationController
+class LinRegressionsController < ApplicationController
 
     skip_before_action :verify_authenticity_token
     def index
     end
     
     def create
-        csv_file = params[:csv_file]
+        csv_file = params[:file]
         csv_file_path = csv_file.path
         
         xs, ys = [], []

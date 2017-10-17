@@ -6,7 +6,7 @@ class FiltersController < ApplicationController
     end 
     
     def create
-        csv_file = params[:csv_file]
+        csv_file = params[:file]
         csv_file_path = csv_file.path
     
         sum = 0 

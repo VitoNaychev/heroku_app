@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     post 'filters' => 'filters#create'
     get 'intervals' => 'intervals#index'
     post 'intervals' => 'intervals#create'
-    get 'lin_regression' => 'lin_regression#index'
-    post 'lin_regression' => 'lin_regression#create'
+    get 'lin_regressions' => 'lin_regressions#index'
+    post 'lin_regressions' => 'lin_regressions#create'
 end
