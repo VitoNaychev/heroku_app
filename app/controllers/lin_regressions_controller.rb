@@ -1,9 +1,8 @@
 require 'csv'
-require_relative 'simple-linear-regression'
-
+require_relative "simple-linear-regression"
 
 class LinRegressionsController < ApplicationController
-
+  
     skip_before_action :verify_authenticity_token
     def index
     end
@@ -23,8 +22,8 @@ class LinRegressionsController < ApplicationController
         end
         linear_model = SimpleLinearRegression.new(xs, ys)
         
-        print ("%.6f," % linear_model.y_intercept)
-        puts ("%.6f" % linear_model.slope)
+        print ("%.6f," % linear_model.slope)
+        puts ("%.6f" % linear_model.y_intercept)
         render :plain => ("%.6f," % linear_model.slope).to_s + ("%.6f\n" % linear_model.y_intercept).to_s
     end
 end
