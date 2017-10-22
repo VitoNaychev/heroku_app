@@ -13,9 +13,13 @@ class LinRegressionsController < ApplicationController
         
         xs, ys = [], []
     
-        countr = 0
+        countr = -1
 
         CSV.foreach(csv_file_path) do |row|
+            if countr == -1
+                countr += 1
+                next
+            end
             ys << row[0].to_f
             xs << countr.to_f
             countr += 1

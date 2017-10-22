@@ -16,6 +16,11 @@ class IntervalsController < ApplicationController
         sums = []
 
         CSV.foreach(csv_file_path) do |row|
+            if countr == 0
+                sums[countr] = 0
+                countr += 1
+                next
+            end
             sums[countr] = 0
             countr2 = 0
             CSV.foreach(csv_file_path) do |row2|

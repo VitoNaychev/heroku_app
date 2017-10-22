@@ -10,8 +10,13 @@ class SumsController < ApplicationController
         csv_file_path = csv_file.path
         
         sum = 0
+        countr = 0
 
         CSV.foreach(csv_file_path) do |row|
+            if countr == 0
+                 countr += 1
+                 next
+            end
             sum += row[0].to_f
         end
 
